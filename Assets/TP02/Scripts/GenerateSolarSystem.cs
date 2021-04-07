@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using planetScript;
 using Random = UnityEngine.Random;
+using CustomMeteor;
 
 public class GenerateSolarSystem : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class GenerateSolarSystem : MonoBehaviour
     [SerializeField] private float sizeSolarSystem;
     [SerializeField] private float sizeSun;
     [SerializeField] private NewPlanet prefab;
+    private Meteor gObject;
+    private float timer;
+    [SerializeField] private Meteor prefabMeteor;
+    [SerializeField] private int meteorAmount;
+    private float meteorFallTime = 8f;
 
     [SerializeField] private List<Material> planetMaterials;
     private int materialSelected;
@@ -50,6 +56,16 @@ public class GenerateSolarSystem : MonoBehaviour
 
     void Update()
     {
-        
+        timer += Time.deltaTime;
+
+        if (timer >= meteorFallTime)
+        {
+            for (int i = 0; i < meteorAmount; i++)
+            {
+                gObject = Instantiate(prefabMeteor, new Vector3(Random.Range(-(sizeSolarSystem), sizeSolarSystem), 100f, Random.Range(-(sizeSolarSystem), sizeSolarSystem)), new Quaternion());
+            }
+
+            timer = 0.0f;
+        }
     }
 }

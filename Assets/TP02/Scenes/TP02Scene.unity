@@ -295,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783911192}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00000035762787}
+  m_LocalPosition: {x: 0, y: -0.04, z: 0.00000035762787}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 634469590}
@@ -395,6 +395,10 @@ MonoBehaviour:
   sizeSolarSystem: 250
   sizeSun: 20
   prefab: {fileID: 2927684306280453973, guid: 0d86d9e41bc15c04c8873ee54746e607, type: 3}
+  prefabMeteor: {fileID: 5596314822616283808, guid: b40ec6a2c86f9004fb688f87665cdb12,
+    type: 3}
+  meteorAmount: 10
+  meteorFallTime: 5
   planetMaterials:
   - {fileID: 2100000, guid: a030f2c632ef2454c99adeca24caca3e, type: 2}
   - {fileID: 2100000, guid: d30f3d04abcee0348960c4ae594c4a4d, type: 2}
