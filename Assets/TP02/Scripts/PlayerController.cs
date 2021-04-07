@@ -6,26 +6,33 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float movementSpeed;
     [SerializeField] private float rotationSpeed;
-    private CharacterController controller;
-    private float rot = 0.0f;
+    Rigidbody m_RigidBody;
+    private float yRot = 0.0f;
+    private float zRot = 0.0f;
 
 
     void Start()
     {
-        controller = gameObject.AddComponent<CharacterController>();
+        m_RigidBody = GetComponent<Rigidbody>();
     }
     
     void Update()
     {
-        Vector3 move = new Vector3(0, 0, Input.GetAxis("Vertical"));
-        controller.Move(move * Time.deltaTime * movementSpeed);
+        yRot -= Input.GetAxis("Horizontal") * rotationSpeed;
+        zRot -= Input.GetAxis("Vertical") * rotationSpeed;
 
-        if (move != Vector3.zero)
+        transform.eulerAngles = new Vector3(0.0f, yRot, zRot);
+    }
+
+    private void LateUpdate()
+    {
+        if (Input.GetKey(KeyCode.E))
         {
-            transform.forward = move;
+            m_RigidBody.AddForce(transform.right * -(movementSpeed));
         }
-
-        rot -= Input.GetAxis("Horizontal") * rotationSpeed;
-        transform.eulerAngles = new Vector3(0.0f, rot, 0.0f);
+        if (Input.GetKey(KeyCode.Q))
+        {
+            m_RigidBody.AddForce(transform.right * movementSpeed);
+        }
     }
 }

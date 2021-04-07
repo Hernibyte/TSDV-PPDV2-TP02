@@ -15,7 +15,7 @@ public class GenerateSolarSystem : MonoBehaviour
     private float timer;
     [SerializeField] private Meteor prefabMeteor;
     [SerializeField] private int meteorAmount;
-    private float meteorFallTime = 8f;
+    //private float meteorFallTime = 8f;
 
     [SerializeField] private List<Material> planetMaterials;
     private int materialSelected;
@@ -56,16 +56,16 @@ public class GenerateSolarSystem : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer >= meteorFallTime)
-        {
-            for (int i = 0; i < meteorAmount; i++)
-            {
-                gObject = Instantiate(prefabMeteor, new Vector3(Random.Range(-(sizeSolarSystem), sizeSolarSystem), 100f, Random.Range(-(sizeSolarSystem), sizeSolarSystem)), new Quaternion());
-            }
-
-            timer = 0.0f;
-        }
+        //timer += Time.deltaTime;
+        //
+        //if (timer >= meteorFallTime)
+        //{
+        //    for (int i = 0; i < meteorAmount; i++)
+        //    {
+        //        gObject = Instantiate(prefabMeteor, new Vector3(Random.Range(-(sizeSolarSystem), sizeSolarSystem), 100f, Random.Range(-(sizeSolarSystem), sizeSolarSystem)), new Quaternion());
+        //    }
+        //
+        //    timer = 0.0f;
+        //}
     }
 }
